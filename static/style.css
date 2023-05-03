@@ -9,7 +9,7 @@
     overflow-y: auto;
     color: #fff;
     width: 190vh;
-    margin-left: 5vh;
+    margin-left: 3vh;
     margin-top: 20px;
     padding-top: 20px;
     padding-left: 20px;
@@ -65,3 +65,47 @@ button{
     color: #fff;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .container{
+        background: #353535;
+        overflow-y: auto;
+        color: #fff;
+        width: 45vh;
+        margin-top: 20px;
+        padding-top: 20px;
+        padding-left: 0px;
+        border: 1px solid #fff transparent;
+    }
+
+    .msgBox{
+        padding: 10px 20px;
+        width: 70%;
+        border-radius: 40px;
+        background: #252525;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    
+    .msgBox p{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    
+    .msgBox h3{
+        font-weight: 400;
+    }
+
+    input{
+        height: 30px;
+        padding: 7px;
+        outline: none;
+        width: 60%;
+        margin-left: 10px;
+        background: #505050;
+        border: 0px;
+        border-radius: 50px;
+        padding-left: 20px;
+        color: #fff;
+    }
+  }
