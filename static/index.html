@@ -10,7 +10,7 @@
 <body>
     <div class="container" style="height:80vh"></div>
     <form action="" id="form">
-        <input type="text" class="message"><button class="sendbutton">Send</button>
+        <input type="text" class="message" placeholder="Send a message......"><button class="sendbutton">Send</button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -44,6 +44,13 @@
             var item = document.createElement('div');
             item.innerHTML = `<div class="msgBox"><p class="UserName">${data.user}</p><h3 class="msg">${data.message}</h3></div>`
             container.appendChild(item)
+        })
+
+        socket.on('new-user-joined',function(user){
+            const container = document.querySelector('.container')
+            var content = document.createElement('div');
+            content.innerHTML = `<center><div class="msgBox"><h3 class="msg" style='font-style: italic;'>${user} joined the chat</h3></div></center>`
+            container.appendChild(content)
         })
     </script>
 </body>

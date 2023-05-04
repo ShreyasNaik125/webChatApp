@@ -19,15 +19,15 @@ users = [];
 io.on('connection', (socket) => {
 
     socket.on('userSet',function(username){
-        users.push(username)
-        console.log(users)
+        console.log(username + ' joined the chat')
+        socket.broadcast.emit('new-user-joined',username)
+        socket.emit('new-user-joined',username)
     })
 
     socket.on('recvMessage',(data) => {
         socket.broadcast.emit('sendMsg',data)
         socket.emit('sendMsg',data)
     })
-
 });
 
 //socket
