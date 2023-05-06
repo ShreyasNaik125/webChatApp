@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MastiChats</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="usernamecontainer">
+        <h1 class="djkmlw">Enter a Username</h1>
+        <input type="text" class="Usernameinput" placeholder="Choose a unique nickname">
+        <button class="UserSetbtn">Join</button>
+    </div>
+
+    <div class="message-container">
+        <!-- <div class="new-join">{username} joined the chat</div> -->
+    </div>
+
+    <div class="messageform">
+        <input type="text" class="messageinp" placeholder="Send a message........">
+        <button class="submitmsgbtn">Send</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>

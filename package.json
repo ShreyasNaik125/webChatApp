@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "socket.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,10 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "socket.io": "^4.6.1",
-    "socket.io-client": "^4.6.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
   }
 }

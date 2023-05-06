@@ -1,37 +1,38 @@
-const express = require('express');
+const express = require('express')
 const app = express()
 const http = require('http')
 const server = http.createServer(app)
-const io = require('socket.io')(server)
 
-app.use(express.static(__dirname + '/static'))
+app.use(express.static(__dirname + '/public'))
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname + 'index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 
-port = process.env.PORT || 3000
+//socket code
 
-//socket
+const io = require('socket.io')(server)
 
-users = [];
+io.on('connection',function(socket){
+    socket.on('usernameStore',username => {
 
-io.on('connection', (socket) => {
+        socket.emit('user-joined','You')
+        socket.broadcast.emit('user-joined',username)
+        
+        socket.on('recvMessage',message => {
+            obj = {user:username,msg:message}
+            socket.emit('msg-out',obj)
+            socket.broadcast.emit('msg-inc',obj)
+        })
 
-    socket.on('userSet',function(username){
-        console.log(username + ' joined the chat')
-        socket.broadcast.emit('new-user-joined',username)
-        socket.emit('new-user-joined',username)
+        socket.on('disconnect',()=>{
+            socket.broadcast.emit('user-left',username)
+        })
     })
+})
 
-    socket.on('recvMessage',(data) => {
-        socket.broadcast.emit('sendMsg',data)
-        socket.emit('sendMsg',data)
-    })
-});
+//socket code
 
-//socket
-
-server.listen(port,function(){
-    console.log('listening on port:'+port)
+server.listen(3000,function(){
+    console.log('listening on port *3000')
 })
